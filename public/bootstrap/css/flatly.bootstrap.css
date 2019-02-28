@@ -4513,6 +4513,7 @@ input[type="button"].btn-block {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+  color: #2384c6;
 }
 
 @media (max-width: 575.98px) {

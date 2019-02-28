@@ -1,0 +1,43 @@
+.checked
+{
+    color: gold;
+    margin: 0.5px solid black;
+}
+
+.card
+{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.card-header
+{
+    height: 50px;
+}
+.review
+{
+    width: 90%;
+    padding-right: 10px;
+    border-bottom: 1px solid black;
+    padding-top: 15px;
+}
+.side-info
+{
+    padding-top:50px;
+}
+.review-title
+{
+    background-color: aquamarine;
+    height: 30px;
+}
+.reviewTimeStamp
+{
+    color: rgb(98, 170, 16);
+}
+footer
+{
+    position: absolute;
+}
+#submit-button
+{
+    margin-left: 15px;
+}

@@ -5,15 +5,15 @@ html
     title = title
     link(rel='stylesheet', href = '/stylesheets/style.css')
     link(rel='stylesheet', href = '/bootstrap/css/flatly.bootstrap.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   body
-    .navbar.navbar-default.navbar-fixed-top
+    nav.navbar.navbar-default.navbar-expand-lg.navbar-fixed-top.bg-primary
       .container
-        .navbar-header
-          a.navbar-brand(href = '/') Loc8er
-          button.navbar-toggler(type = 'button', data-toggle = 'collapse', data-target = '#navbar-main')
-            span.navbar-toggler-icon
-        #navbar-main.navbar-collapse.collapse
-          ul.nav.navbar-nav
+        a.navbar-brand(href = '/') Loc8er
+        button.navbar-toggler.fa.fa-bars(type = 'button', data-toggle = 'collapse', data-target = '#navbar-main')
+          span.navbar-toggler-icon
+        #navbar-main.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
             li
               a(href = '/about/') About
     .container

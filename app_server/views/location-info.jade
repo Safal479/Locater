@@ -1,46 +1,39 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
 block content
   .row.page-header
     .col-lg-12
-      h1 Starcups
+      h1= title
   .row
     .col-xs-12.col-md-9
       .row
         .col-sm-12
-          p.rating
-            span.fa.fa-star.checked
-            span.fa.fa-star.checked
-            span.fa.fa-star.checked
-            span.fa.fa-star.unchecked
-            span.fa.fa-star.unchecked
-          p Amarsingh Chowk-12, Pokhara       
+          +outputRating(rating)
+          p= address 
         .col-xs-12.col-sm-6
           .card
             .card-header.bg-success
               h4 Opening Hours
             .card-body
               .card-text 
-                p Monday - Friday : 7:00am - 7:00pm 
-                p Saturday : 8:00am - 5:00pm 
-                p Sunday : closed
+                each item in opensOn
+                  p
+                    | #{item.days} : 
+                    if item.closed
+                      | closed
+                    else
+                      | #{item.time}
           .card
             .card-header.bg-success
               h4 Facilities
             .card-body
               .card-text.lead
-                span.badge.badge-info
-                  span.fa.fa-check
-                  | &nbsp; Hot Drinks
-                |&nbsp;
-                span.badge.badge-info
-                  span.fa.fa-check
-                  | &nbsp; Foods
-                |&nbsp;
-                span.badge.badge-info
-                  span.fa.fa-check
-                  | &nbsp; Free Wifi
-                |&nbsp;   
+                each facility in facilities
+                  span.badge.badge-info
+                    span.fa.fa-check
+                    | &nbsp; #{facility}
+                  |&nbsp;
         .col-xs-12.col-sm-6.location-map
           .card
             .card-header.bg-success
@@ -54,41 +47,22 @@ block content
               a.btn.btn-dark.float-right(href='location/review/new') Add Review
               h4 Customer Reviews
             .card-body.review-container
-              .row
-                .review
-                  .card-title.review-title
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.unchecked
-                    span.fa.fa-star.unchecked
-                    | &nbsp;
-                    | &nbsp;
-                    span.reviewAuthor Safal Bastola
-                    | &nbsp;
-                    | &nbsp;
-                    small.reviewTimeStamp 16 July 2018
-                  .card-text
-                    p What a great place!!!!!!
-              .row
-                .review
-                  .card-title.review-title
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.checked
-                    span.fa.fa-star.unchecked
-                    | &nbsp;
-                    | &nbsp;
-                    span.reviewAuthor Safal Bastola 2
-                    | &nbsp;
-                    | &nbsp;
-                    small.reviewTimeStamp 17 July 2018
-                  .card-text
-                    p Not a great place -_-
+              each review in reviews
+                .row
+                  .review
+                    .card-title.review-title
+                      +outputRating(review.reviewRating)
+                      | &nbsp;
+                      | &nbsp;
+                      span.reviewAuthor= review.reviewAuthor
+                      | &nbsp;
+                      | &nbsp;
+                      small.reviewTimeStamp= review.reviewDate
+                    .card-text
+                      p= review.reviewText
     .col-xs-12.col-md-3.side-info
-      p.lead Starcups is on Loc8r because it has accessible wifi.
-      p If you've been and you like it - or if you don't - please leave a review.
+      p.lead= note
+      p= sideNote
 
               
 

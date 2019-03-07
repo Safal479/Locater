@@ -1,5 +1,5 @@
 var express = require('express');
-const router = express.Router();
+var router = express.Router();
 var othersCtrl =  require('../controllers/others');
 var locationsCtrl = require('../controllers/locations');
 

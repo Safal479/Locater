@@ -11,7 +11,7 @@ var reviewSchema = new mongoose.Schema({
 var openingTimeSchema = new mongoose.Schema({
     days : {type : String, required : true},
     time : String,
-    closed: {type : boolean, required : true}
+    closed: {type : Boolean, required : true}
 });
 
 var locationSchema = new mongoose.Schema({

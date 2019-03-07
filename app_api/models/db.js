@@ -1,6 +1,6 @@
 var mongoose = require ('mongoose');
 var dbURI = 'mongodb://localhost/Loc8r';
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, { useNewUrlParser: true });
 
 // monitor mongoose connections
 mongoose.connection.on('connected', function() {
@@ -18,7 +18,7 @@ mongoose.connection.on('error', function(err) {
 //closing mongoose connection
 var gracefulShutDown = function(msg, callback) {
     mongoose.connection.close(function(){
-        console.log('Mongoose disconnected through '+msg);
+        console.log('Mongoose disconnected through '+ msg);
     });
 };
 
@@ -26,8 +26,8 @@ var gracefulShutDown = function(msg, callback) {
 var readLine = require('readline');
 if (process.platform === 'win32') {
     var rl = readLine.createInterface({
-        input: stdin,
-        output: stdout
+        input: process.stdin,
+        output: process.stdout
     });
     rl.on('SIGINT', function () {
         process.emit('SIGINT');
